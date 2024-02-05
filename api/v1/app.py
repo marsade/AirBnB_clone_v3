@@ -18,7 +18,7 @@ def close(error):
 @app.errorhandler(404)
 def not_found(error):
     response = {
-        'error': 'Not Found',
+        'error': 'Not found',
     }
     return jsonify(response), 404
 
