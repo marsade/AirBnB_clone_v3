@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Run Flask application"""
 from models import storage
 from api.v1.views import app_views
 from flask import Flask
@@ -10,6 +11,7 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def close(error):
+    """close app context"""
     storage.close()
 
 
