@@ -76,6 +76,7 @@ class DBStorage:
         self.__session.remove()
 
     def get(self, cls, id):
+        """Gets an object from the database"""
         for clss in classes:
             if cls is classes[clss]:
                 res = self.__session.query(classes[clss]).filter_by(
@@ -84,6 +85,7 @@ class DBStorage:
         return None
 
     def count(self, cls=None):
+        """Returns the number of objects in the database"""
         """
         Return the count of objects in the database
         for the specified class or all classes.
