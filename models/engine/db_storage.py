@@ -79,20 +79,15 @@ class DBStorage:
         """Gets an object from the database"""
         for clss in classes:
             if cls is classes[clss]:
-                res = self.__session.query(classes[clss]).filter_by(
-                    id=id).first()
+                res = self.__session.query(classes[clss]).filter_by(id=id).first()
                 return res
         return None
 
     def count(self, cls=None):
-        """Returns the number of objects in the database"""
-        """
-        Return the count of objects in the database
-        for the specified class or all classes.
-        """
+        """Return the count of objects in the database for the specified class or all classes."""
         if cls is not None:
             return self.__session.query(cls).count()
-
+        
         total_count = 0
         for clss in classes:
             count_of_class = self.__session.query(classes[clss]).count()
