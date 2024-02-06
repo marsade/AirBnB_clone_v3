@@ -34,6 +34,7 @@ def delete_state(state_id):
 
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
 def create_state():
+    '''Create a new state of specified id with the request json'''
     data = request.get_json()
     if type(data) is not dict:
         abort(400, 'Not a JSON')
@@ -47,6 +48,7 @@ def create_state():
 
 @app_views.route('/states/<state_id>', methods=['PUT'], strict_slashes=False)
 def update_state(state_id):
+    '''Update state with state_id'''
     state = storage.get(State, state_id)
     data = request.get_json()
     if type(data) is not dict:
